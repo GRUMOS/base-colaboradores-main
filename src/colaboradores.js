@@ -24,4 +24,5 @@ export const colaboradores = [
     telefono: "99226644"
     },
     ]
+
     

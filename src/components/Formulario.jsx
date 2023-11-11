@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Alert from './Alert';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Formulario() {
+export default function Formulario({setNuevosColaboradores}) {
     const [id, setId] = useState('');
     const [nombre, setNombre] = useState('');
     const [correo, setCorreo] = useState('');
@@ -23,9 +23,19 @@ export default function Formulario() {
             return;
         }
         
-        
+      setNuevosColaboradores(colaboradores =>{
+        return [...colaboradores,
+          {
+            id: colaboradores.length +1,
+            nombre: nombre,
+            correo: correo,
+            edad: edad,
+            cargo: cargo,
+            telefono: telefono
+            },]
+      })
       setError(false);
-      setErrorMessage("Registro satisfactorio");
+      setErrorMessage("Colaborador agregado!");
       setNombre('');
       setCorreo('');
       setEdad('');
