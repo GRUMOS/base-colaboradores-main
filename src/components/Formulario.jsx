@@ -17,7 +17,7 @@ export default function Formulario() {
     const validarDatos = (e) => {
         e.preventDefault();
   
-        if (id === '' || nombre === '' || correo === '' || edad === ''|| cargo === ''|| telefono === '') {
+        if (nombre === '' || correo === '' || edad === ''|| cargo === ''|| telefono === '') {
             setError(true);
             setErrorMessage("Completa todos los campos!")
             return;
@@ -26,7 +26,6 @@ export default function Formulario() {
         
       setError(false);
       setErrorMessage("Registro satisfactorio");
-      setId('');
       setNombre('');
       setCorreo('');
       setEdad('');
@@ -37,16 +36,6 @@ export default function Formulario() {
     return (
       <>
         <form className="formulario" onSubmit={validarDatos}>
-          <div className="form-group">
-            <input
-              type="number"
-              name="id"
-              className="form-control"
-              placeholder="Id"
-              onChange={(e) => setId(e.target.value)}
-              value={id}
-              />
-          </div>
           <div className="form-group">
             <input
               name="nombre"
