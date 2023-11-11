@@ -9,22 +9,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [nuevosColaboradores, setNuevosColaboradores] = useState([]);
 
 
   return (
     <>
-
-      <Alert />
-      <Buscador />
-      <div>
+<div>
+  <Alert />
+  <Buscador />
+</div>
+<section className="container">
+  <div className="row">
+    <div className="col-md-8 order-md-1">
+      <h2>Lista de colaboradores</h2>
+      <Listado colaboradores={[...colaboradores,...nuevosColaboradores]} />
+    </div>
+    <div className="col-md-4 order-md-2">
       <h2>Agregar colaborador</h2>
-      <Formulario />
-      </div>
-      <div>
-      <h2>Listado de colaboradores</h2>
-      <Listado colaboradores={colaboradores} />
-      </div>
+      <Formulario setNuevosColaboradores={setNuevosColaboradores} />
+    </div>
+  </div>
+</section>
+      
 </>
   );
 }
